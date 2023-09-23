@@ -34,14 +34,14 @@
   border-radius: 16px;
 
   @include vp-1199 {
-    width: 74.129%;
+    width: 74.1%;
     max-width: unset;
     min-height: 510px;
     padding: 55px 80px 60px;
   }
 
   @include vp-767 {
-    width: 90.625%;
+    width: 90.6%;
     min-width: 290px;
     padding: 37px 15px 40px;
   }
@@ -208,9 +208,7 @@
     border: 1px solid $color-charcoal;
     outline: none;
   }
-}
 
-.masa-modal__input input {
   &:hover + label {
     color: $color-charcoal;
   }
@@ -281,6 +279,7 @@
 
     line-height: 20px;
   }
+
   @include vp-767 {
     line-height: 14px;
   }
@@ -313,9 +312,7 @@
   &:focus-visible {
     border: 1px solid $color-dark-brown;
   }
-}
 
-.masa-modal__button-select {
   &:hover + p {
     color: $color-charcoal;
   }
@@ -461,7 +458,6 @@
 }
 
 .masa-modal__select-text {
-  font-style: normal;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

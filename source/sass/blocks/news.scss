@@ -149,8 +149,9 @@
   @include vp-1199 {
     height: 104.2vw;
   }
+
   @include vp-767 {
-    height: 203.125vw;
+    height: 203.13vw;
   }
 }
 
@@ -161,8 +162,9 @@
     height: 95.1vw;
     margin-bottom: 30px;
   }
+
   @include vp-767 {
-    height: 184.375vw;
+    height: 184.3vw;
     margin-bottom: 24px;
   }
 }
@@ -224,9 +226,10 @@
     width: 3.9vw;
     height: 3.9vw;
   }
+
   @include vp-767 {
-    width: 9.375vw;
-    height: 9.375vw;
+    width: 9.3vw;
+    height: 9.3vw;
   }
   stroke: $color-default-white;
   color: $color-default-white;
@@ -281,8 +284,8 @@
   }
 
   @include vp-767 {
-    width: 3.125vw;
-    height: 3.125vw;
+    width: 3.1vw;
+    height: 3.1vw;
   }
 }
 
@@ -317,12 +320,13 @@
     min-height: 3.5vw;
     padding: 2px 12px 3px 0;
   }
+
   @include vp-767 {
     display: flex;
     align-items: center;
     width: 29.6%;
     max-width: unset;
-    min-height: 8.4375vw;
+    min-height: 8.4vw;
     padding-top: 3px;
   }
 
@@ -335,7 +339,7 @@
     width: 16px;
     height: 16px;
 
-    background-image: url(../img/svg/angle-news.svg);
+    background-image: url("../img/svg/angle-news.svg");
     background-repeat: no-repeat;
     background-size: 16px 16px;
   }
@@ -349,7 +353,7 @@
     width: 16px;
     height: 16px;
 
-    background-image: url(../img/svg/angle-news.svg);
+    background-image: url("../img/svg/angle-news.svg");
     background-repeat: no-repeat;
     background-size: 16px 16px;
   }
@@ -364,9 +368,10 @@
   letter-spacing: 0.12px;
 
   @include vp-1199 {
-    font-size: 1.5625vw;
-    line-height: 1.5625vw;
+    font-size: 1.6vw;
+    line-height: 1.6vw;
   }
+
   @include vp-767 {
     font-size: 3.75vw;
     line-height: 3.75vw;
@@ -387,17 +392,18 @@
   @include vp-1199 {
     display: flex;
     align-items: center;
-    width: 63.0%;
+    width: 63%;
     max-width: unset;
-    min-height: 7.03125vw;
+    min-height: 7vw;
   }
+
   @include vp-767 {
     display: flex;
     align-items: center;
-    width: 68.966%;
+    width: 68.9%;
     min-width: unset;
     max-width: unset;
-    min-height: 15.625vw;
+    min-height: 15.6vw;
     padding: 5px 4px 0 0;
   }
 
@@ -410,7 +416,7 @@
     width: 16px;
     height: 16px;
 
-    background-image: url(../img/svg/angle-news.svg);
+    background-image: url("../img/svg/angle-news.svg");
     background-repeat: no-repeat;
     background-size: 16px 16px;
   }
@@ -428,13 +434,14 @@
 
   @include vp-1199 {
     font-size: 2.6vw;
-    line-height: 3.125vw;
+    line-height: 3.1vw;
   }
+
   @include vp-767 {
     max-width: unset;
 
     font-size: 5vw;
-    line-height: 5.625vw;
+    line-height: 5.6vw;
   }
 }
 
@@ -442,7 +449,6 @@
   position: relative;
 
   display: flex;
-  justify-content: space-between;
   justify-content: space-between;
   align-items: center;
   min-width: 240px;
@@ -459,9 +465,10 @@
     width: 74.1%;
     min-width: unset;
     max-width: unset;
-    min-height: 7.421875vw;
+    min-height: 7.4vw;
     padding: 0 18px 9px 0;
   }
+
   @include vp-767 {
     width: 90.7%;
     min-width: unset;
@@ -479,7 +486,7 @@
     width: 16px;
     height: 16px;
 
-    background-image: url(../img/svg/angle-news.svg);
+    background-image: url("../img/svg/angle-news.svg");
     background-repeat: no-repeat;
     background-size: 16px 16px;
   }
@@ -495,21 +502,23 @@
   line-height: 18px;
 
   @include vp-1199 {
-    max-width: 76.333333%;
+    max-width: 76.3%;
 
     font-size: 1.8vw;
     line-height: 2.6vw;
   }
+
   @include vp-767 {
     font-size: 3.75vw;
-    line-height: 4.375vw;
+    line-height: 4.37vw;
   }
 }
 
 .news__swiper-slide--active {
   @include vp-767 {
-    height: 103.125vw;
+    height: 103.1vw;
   }
+
   @media (min-width: 1200px) {
     min-width: 48.7%;
     max-width: 604px;
@@ -521,6 +530,7 @@
   @include vp-1199 {
     max-width: unset;
   }
+
   @media (min-width: 1200px) {
     max-width: 291px;
     padding: 14px 4px 1px 0;
@@ -537,9 +547,11 @@
   @include vp-1199 {
     min-height: 97px;
   }
+
   @include vp-767 {
     min-height: 64px;
   }
+
   @media (min-width: 1200px) {
     min-width: 389px;
     max-width: 389px;
@@ -550,6 +562,7 @@
   @include vp-767 {
     max-width: 80.9%;
   }
+
   @media (min-width: 1200px) {
     max-width: 325px;
   }

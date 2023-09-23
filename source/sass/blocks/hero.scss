@@ -38,6 +38,7 @@
     min-height: 133.3vw;
     padding: 677px 45px 60px;
   }
+
   @include vp-767 {
     min-height: 177.5vw;
     padding: 236px 15px 20px;
@@ -215,7 +216,6 @@
   min-height: 187px;
   margin: 0;
   margin-top: -1px;
-  padding: 0;
   padding: 29px 50px 10px;
 
   background-color: $color-default-white;
@@ -229,7 +229,7 @@
 
   @include vp-767 {
     max-width: 100%;
-    min-height: 41.875vw;
+    min-height: 41.8vw;
     padding: 20px 14px 10px;
 
     border-radius: 0 16px 16px 0;
@@ -254,8 +254,8 @@
   }
 
   @include vp-767 {
-    font-size: 6.875vw;
-    line-height: 8.125vw;
+    font-size: 6.8vw;
+    line-height: 8.1vw;
   }
 }
 
@@ -322,14 +322,14 @@
   background-color: $color-default-white;
 
   @include vp-1199 {
-    max-width: 55.773%;
+    max-width: 55.7%;
   }
 
   @include vp-767 {
     display: flex;
     align-items: center;
     max-width: 100%;
-    min-height: 28.4375vw;
+    min-height: 28.4vw;
     margin-top: -1px;
     padding: 0 14px 11px 14px;
 
@@ -348,7 +348,7 @@
   }
 
   @include vp-767 {
-    font-size: 4.375vw;
+    font-size: 4.3vw;
     line-height: 6.25vw;
   }
 }
@@ -365,7 +365,7 @@
     align-items: center;
     width: 69.75%;
     max-width: 69.7%;
-    min-height: 19.375vw;
+    min-height: 19.3vw;
     margin-top: -1px;
     padding: 10px 15px;
 
@@ -394,7 +394,7 @@
 .hero__swiper-content--first .hero__title,
 .hero__swiper-content--second .hero__title {
   @include vp-767 {
-    min-height: 34.875px;
+    min-height: 34.8px;
     padding-bottom: 12px;
   }
 }

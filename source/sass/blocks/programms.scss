@@ -98,7 +98,7 @@
   object-fit: cover;
 
   @include vp-1199 {
-    min-height: 54.688vw;
+    min-height: 54.6vw;
     padding: 285px 41px 20px 20px;
   }
 
@@ -214,6 +214,7 @@
     min-height: 4.9vw;
     padding-bottom: 1px;
   }
+
   @include vp-767 {
     display: flex;
     align-items: center;
@@ -231,7 +232,7 @@
     width: 18px;
     height: 18px;
 
-    background-image: url(../img/svg/angle.svg);
+    background-image: url("../img/svg/angle.svg");
     background-repeat: no-repeat;
     background-size: 18px 18px;
   }
@@ -253,13 +254,14 @@
     max-width: 99%;
 
     font-size: 2.6vw;
-    line-height: 3.125vw;
+    line-height: 3.1vw;
   }
+
   @include vp-767 {
     max-width: 99%;
 
     font-size: 5vw;
-    line-height: 5.625vw;
+    line-height: 5.6vw;
   }
 }
 
@@ -281,6 +283,7 @@
     min-height: 10vw;
     padding: 5px 18px 10px;
   }
+
   @include vp-767 {
     width: 100%;
     max-width: unset;
@@ -303,15 +306,15 @@
     max-width: 80%;
 
     font-size: 1.8vw;
-    line-height: 20px;
-    line-height: 2.34375vw;
+    line-height: 2.3vw;
   }
+
   @include vp-767 {
     max-width: 84%;
 
     font-weight: 400;
     font-size: 3.75vw;
-    line-height: 4.375vw;
+    line-height: 4.37vw;
   }
 }
 
@@ -329,9 +332,10 @@
     width: 3.9vw;
     height: 3.9vw;
   }
+
   @include vp-767 {
-    width: 9.375vw;
-    height: 9.375vw;
+    width: 9.3vw;
+    height: 9.3vw;
   }
   stroke: $color-default-white;
   color: $color-default-white;
@@ -380,9 +384,10 @@
     width: 1.3vw;
     height: 1.3vw;
   }
+
   @include vp-767 {
-    width: 3.125vw;
-    height: 3.125vw;
+    width: 3.1vw;
+    height: 3.1vw;
   }
 }
 
@@ -394,6 +399,7 @@
   @include vp-1199 {
     padding-right: 45px;
   }
+
   @include vp-767 {
     order: 2;
     width: fit-content;

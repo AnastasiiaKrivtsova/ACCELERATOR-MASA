@@ -1,9 +1,10 @@
 @keyframes animationOverlay {
   from {
-    background-color: rgba(13, 29, 51, 0.0)
+    background-color: rgba(13, 29, 51, 0);
   }
+
   to {
-    background-color: rgba(13, 29, 51, 0.40)
+    background-color: rgba(13, 29, 51, 0.4);
   }
 }
 

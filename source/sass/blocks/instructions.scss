@@ -11,7 +11,7 @@
   margin: 0 auto;
   padding: 124px 6.9% 107px;
 
-  gap: 11.16931216931217%;
+  gap: 11.1%;
   grid-template-columns: 498px 498px;
 
   @include vp-1199 {
@@ -89,6 +89,7 @@
 
     line-height: 20px;
   }
+
   @include vp-767 {
     margin-bottom: 26px;
     padding: 0;

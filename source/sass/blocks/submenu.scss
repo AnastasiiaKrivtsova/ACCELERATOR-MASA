@@ -6,7 +6,7 @@
   display: none;
 }
 
-.submenu--opened .submenu__list {
+.submenu--is-open .submenu__list {
   display: block;
   padding: 0;
   margin: 0;
@@ -42,19 +42,20 @@
   }
 }
 
-.submenu--opened .submenu__button {
+.submenu--is-open .submenu__button {
   margin-bottom: 12px;
+  color: $color-default-white;
 }
 
-.submenu__icon  {
+.submenu__icon {
   stroke: $color-default-white;
   color: $color-default-white;
   opacity: 0.7;
-  background-color: #316dc2;
-  fill:  #316dc2;
+  background-color: $color-light-blue;
+  fill: $color-light-blue;
 }
 
-.submenu--opened .submenu__button .submenu__icon {
+.submenu--is-open .submenu__button .submenu__icon {
   transform: rotate(180deg);
   opacity: 1;
 }
@@ -67,10 +68,6 @@
   text-transform: uppercase;
   margin-right: 11px;
   max-width: 250px;
-}
-
-.submenu--opened .submenu__button {
-    color: $color-default-white;
 }
 
 .submenu__list-item {

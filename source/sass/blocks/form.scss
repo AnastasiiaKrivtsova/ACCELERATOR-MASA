@@ -11,7 +11,7 @@
   @include vp-1199 {
     padding: 100px 45px 30px 45px;
   }
-  
+
   @include vp-767 {
     padding: 67px 15px 14px;
   }
@@ -122,8 +122,6 @@
   position: relative;
 
   display: flex;
-  display: flex;
-  flex-direction: column;
   flex-direction: column-reverse;
   width: 100%;
   margin: 0;
@@ -218,9 +216,7 @@
     outline: none;
     opacity: 1;
   }
-}
 
-.form__input input {
   &:hover + label {
     color: $color-alabaster;
   }
@@ -299,6 +295,22 @@
     outline: none;
     opacity: 1;
   }
+
+  &:hover + p {
+    color: $color-alabaster;
+  }
+
+  &:focus + p {
+    color: $color-alabaster;
+  }
+
+  &:focus-visible + p {
+    color: $color-alabaster;
+  }
+
+  &:active + p {
+    color: $color-alabaster;
+  }
 }
 
 .form__textarea p {
@@ -319,33 +331,12 @@
 
     line-height: 20px;
   }
+
   @include vp-767 {
     margin-bottom: 12px;
 
     font-size: 12px;
     line-height: 14px;
-  }
-}
-
-.form__textarea textarea {
-  &:hover + p {
-    color: $color-alabaster;
-  }
-
-  &:focus + p {
-    color: $color-alabaster;
-  }
-
-  &:focus + p {
-    color: $color-alabaster;
-  }
-
-  &:focus-visible + p {
-    color: $color-alabaster;
-  }
-
-  &:active + p {
-    color: $color-alabaster;
   }
 }
 
@@ -402,6 +393,7 @@
 
     line-height: 20px;
   }
+
   @include vp-767 {
     margin-bottom: 11px;
 
@@ -441,14 +433,8 @@
   &:active {
     border: 1px solid $color-default-white;
   }
-}
 
-.form__button-select {
   &:hover + p {
-    color: $color-alabaster;
-  }
-
-  &:focus + p {
     color: $color-alabaster;
   }
 
