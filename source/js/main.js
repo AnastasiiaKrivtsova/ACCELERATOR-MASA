@@ -1,29 +1,32 @@
 import {iosVhFix} from './utils/ios-vh-fix';
 import {initModals} from './modules/modals/init-modals';
 import {Form} from './modules/form-validate/form';
-
-// ---------------------------------
+import {setHeroSwiper, setProgramsSwiper, setReviewsSwiper, setNewsSwiper} from './blocks/page-swiper';
+import {openCloseMenu, openCloseSubMenu} from './blocks/menu';
+import {CustomSelect} from './modules/form-validate/custom-select';
+import {initAccordions} from './blocks/init-accordion';
+import {setNewsButton} from './blocks/news-sorter';
 
 window.addEventListener('DOMContentLoaded', () => {
-
-  // Utils
-  // ---------------------------------
-
   iosVhFix();
+  setHeroSwiper();
+  setProgramsSwiper();
+  setReviewsSwiper();
+  setNewsSwiper();
+  openCloseMenu();
+  openCloseSubMenu();
+  initAccordions();
+  setNewsButton();
 
-  // Modules
-  // ---------------------------------
-
-  // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
-  // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
     initModals();
     const form = new Form();
     window.form = form;
     form.init();
+    const select = new CustomSelect();
+    select.init();
   });
 });
-
 // ---------------------------------
 
 // ❗❗❗ обязательно установите плагины eslint, stylelint, editorconfig в редактор кода.

@@ -1,0 +1,333 @@
+.reviews {
+  width: 100%;
+  background-color: $color-alabaster;
+}
+
+.reviews__wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 54px 6.9% 111px;
+
+  @include vp-1199 {
+    padding: 49px 0 91px 45px;
+  }
+
+  @include vp-767 {
+    padding: 25px 15px 66px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+
+  @media (max-width: 1300px) {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}
+
+.reviews__swiper-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reviews__swiper-wrapper h2 {
+  margin: 0;
+  margin-right: auto;
+  margin-bottom: 45px;
+  padding: 0;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 50px;
+  color: $color-light-blue;
+
+  @include vp-1199 {
+    margin-bottom: 40px;
+
+    font-size: 34px;
+    line-height: 50px;
+  }
+
+  @include vp-767 {
+    order: 1;
+    margin-bottom: 32px;
+
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.reviews__swiper {
+  margin-bottom: 48px;
+
+  @include vp-767 {
+    order: 3;
+    margin: 0;
+  }
+}
+
+.reviews__slide {
+  height: initial;
+  margin: 0;
+  padding: 50px 49px 43px;
+
+  border: 1px solid $color-light-blue;
+  border-radius: 16px;
+
+  @include vp-1199 {
+    padding-bottom: 46px;
+  }
+
+  @include vp-767 {
+    padding: 30px 14px 25px;
+  }
+}
+
+.reviews__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 0;
+
+  @include vp-767 {
+    flex-direction: column;
+    justify-content: left;
+  }
+}
+
+.reviews__client {
+  display: grid;
+  align-items: center;
+  max-width: 194px;
+  margin: 0;
+  padding: 0;
+
+  gap: 15px;
+  grid-template-columns: 90px 89px;
+
+  @include vp-767 {
+    width: 100%;
+    max-width: unset;
+    margin-bottom: 14px;
+
+    gap: 10px;
+    grid-template-columns: 60px 89px;
+  }
+}
+
+.reviews__img {
+  border-radius: 90px;
+}
+
+.reviews__client p {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: $color-light-blue;
+
+  @include vp-1199 {
+    font-size: 20px;
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+.reviews__programm-wrapper {
+  display: grid;
+  margin: 0;
+  padding: 0;
+
+  gap: 25px;
+  grid-template-columns: auto auto;
+
+  @include vp-767 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+.reviews__programm-content {
+  max-width: 126px;
+
+  @include vp-767 {
+    max-width: 108px;
+  }
+}
+
+.reviews__programm-content h3 {
+  margin: 0;
+  margin-bottom: 3px;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: $color-light-blue;
+  text-transform: uppercase;
+  letter-spacing: 0.12px;
+
+  @include vp-767 {
+    margin-bottom: 6px;
+
+    word-break: break-all;
+  }
+}
+
+.reviews__programm-content span {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  @include vp-1199 {
+    line-height: 20px;
+  }
+
+  @include vp-767 {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.reviews__text h4 {
+  margin: 0;
+  margin-bottom: 14px;
+  padding: 0;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+  color: $color-light-blue;
+
+  @include vp-1199 {
+    margin-bottom: 16px;
+
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @include vp-767 {
+    margin-bottom: 15px;
+
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+.reviews__text p {
+  margin: 0;
+  padding: 0;
+
+  line-height: 26px;
+
+  @include vp-1199 {
+    line-height: 20px;
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+  }
+}
+
+.reviews__interactives-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  @include vp-1199 {
+    padding-right: 45px;
+  }
+
+  @include vp-767 {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    order: 2;
+  }
+}
+
+.reviews__swiper-scrollbar {
+  width: 100%;
+  max-width: 1134px;
+  background: rgba(49, 109, 194, 0.2);
+  height: 2px;
+
+  @include vp-1199 {
+    max-width: 560px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.reviews__swiper-scrollbar .swiper-scrollbar-drag {
+  background-color: $color-light-blue;
+  opacity: 1;
+}
+
+.reviews__buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 54px;
+  height: 22px;
+  margin-left: 1200px;
+
+  @include vp-1199 {
+    margin-left: 640px;
+    width: 65px;
+  }
+
+  @include vp-767 {
+    margin: 0;
+    padding: 0;
+    width: 52px;
+    padding-top: 21px;
+  }
+}
+
+.reviews__swiper-button {
+  position: relative;
+  left: unset;
+  right: unset;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  stroke: $color-light-blue;
+
+  &:hover {
+    background-color: $color-default-white;
+  }
+
+  &:focus-visible {
+    background-color: $color-default-white;
+    outline: none;
+  }
+
+  &:active {
+    background-color: $color-default-white;
+    stroke: rgba(49, 109, 194, 0.7);
+  }
+
+  &::after {
+    content: unset;
+  }
+}

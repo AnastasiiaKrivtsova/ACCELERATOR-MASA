@@ -1,0 +1,397 @@
+.faq {
+  padding: 63px 6.9% 60px;
+  background-color: $color-alabaster;
+
+  @include vp-1199 {
+    padding: 40px 45px 40px;
+  }
+
+  @include vp-767 {
+    padding: 39px 15px 35px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+
+  @media (max-width: 1300px) {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}
+
+.faq__wrapper {
+  max-width: 1028px;
+  margin: 0 auto;
+}
+
+.faq h2 {
+  margin: 0;
+  margin-bottom: 67px;
+  padding: 0;
+
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: $color-light-blue;
+
+  @include vp-1199 {
+    margin-bottom: 42px;
+
+    font-size: 34px;
+    text-align: center;
+  }
+
+  @include vp-767 {
+    margin-bottom: 33px;
+
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+.faq__accordion {
+  position: relative;
+
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.faq__accordion-element {
+  position: relative;
+
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+
+  border-radius: 16px;
+
+  @include vp-1199 {
+    &.is-active {
+      padding-bottom: 26px;
+    }
+  }
+
+  @include vp-767 {
+    &.is-active {
+      padding-bottom: 15px;
+    }
+  }
+
+  &.is-active {
+    padding-bottom: 33px;
+
+    background-color: $color-light-blue;
+    opacity: 1;
+  }
+}
+
+.faq__accordion-button {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 120px;
+  margin: 0;
+  padding: 32px 39px 32px 39px;
+
+  border: 1px solid $color-light-blue;
+  border-radius: 16px;
+
+  transition: 0.3s;
+
+  @include vp-1199 {
+    min-height: 100px;
+    padding: 24px 29px 24px;
+  }
+
+  @include vp-767 {
+    min-height: 80px;
+    padding: 19px 85px 19px 14px;
+  }
+
+  &:hover {
+    background-color: $color-default-white;
+  }
+
+  &:focus-visible {
+    background-color: $color-default-white;
+    outline: none;
+  }
+
+  &:active {
+    background-color: $color-default-white;
+  }
+}
+
+.faq__accordion-element.is-active .faq__accordion-button {
+  min-height: 70px;
+  padding-top: 41px;
+  padding-bottom: 16px;
+  background-color: $color-light-blue;
+
+  transition: 0s;
+
+  @include vp-1199 {
+    padding-top: 36px;
+    padding-bottom: 22px;
+  }
+
+  @include vp-767 {
+    padding-top: 21px;
+    padding-bottom: 15px;
+  }
+
+  &:hover {
+    background-color: $color-light-blue;
+
+    transition: 0s;
+  }
+
+  &:focus-visible {
+    background-color: $color-light-blue;
+    outline: none;
+
+    transition: 0s;
+  }
+
+  &:active {
+    background-color: $color-endeavour;
+    border: 1px solid transparent;
+
+    transition: 0s;
+  }
+}
+
+.faq__accordion-button .faq__accordion-icon {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+
+  width: 40px;
+  height: 40px;
+
+  background-color: $color-light-blue;
+  border: 1px solid transparent;
+  border-radius: 50%;
+
+  @include vp-1199 {
+    top: 28px;
+    right: 29px;
+  }
+
+  @include vp-767 {
+    top: 20px;
+    right: 14px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 10px;
+
+    width: 18px;
+    height: 1px;
+
+    background-color: $color-default-white;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 10px;
+
+    width: 18px;
+    height: 1px;
+
+    background-color: $color-default-white;
+    transform: rotate(90deg);
+  }
+}
+
+.faq__accordion-button:disabled .faq__accordion-icon {
+  border: 1px solid rgba(28, 51, 116, 0.3);
+}
+
+.faq__accordion-button:hover .faq__accordion-icon {
+  background-color: transparent;
+  border: 1px solid $color-light-blue;
+}
+
+.faq__accordion-button:focus-visible .faq__accordion-icon {
+  background-color: transparent;
+  border: 1px solid $color-light-blue;
+  outline: none;
+}
+
+.faq__accordion-button:active .faq__accordion-icon {
+  background-color: rgba(39, 86, 153, 1);
+  border: 1px solid rgba(39, 86, 153, 1);
+}
+
+.faq__accordion-button:disabled .faq__accordion-icon::before {
+  opacity: 0.3;
+}
+
+.faq__accordion-button:disabled .faq__accordion-icon::after {
+  opacity: 0.3;
+}
+
+.faq__accordion-button:hover .faq__accordion-icon::before {
+  background-color: $color-light-blue;
+}
+
+.faq__accordion-button:hover .faq__accordion-icon::after {
+  background-color: $color-light-blue;
+}
+
+.faq__accordion-button:focus-visible .faq__accordion-icon::after {
+  background-color: $color-light-blue;
+  outline: none;
+}
+
+.faq__accordion-button:focus-visible .faq__accordion-icon::before {
+  background-color: $color-light-blue;
+  outline: none;
+}
+
+.faq__accordion-button:active .faq__accordion-icon::before {
+  background-color: $color-default-white;
+}
+
+.faq__accordion-button:active .faq__accordion-icon::after {
+  background-color: $color-default-white;
+}
+
+.faq__accordion-element.is-active .faq__accordion-icon {
+  background-color: $color-default-white;
+
+  &::before {
+    background-color: $color-light-blue;
+  }
+}
+
+.faq__accordion-element.is-active
+  .faq__accordion-button:hover
+  .faq__accordion-icon {
+  background-color: transparent;
+  border: 1px solid $color-default-white;
+
+  &::before {
+    background-color: $color-default-white;
+  }
+}
+
+.faq__accordion-element.is-active
+  .faq__accordion-button:focus-visible
+  .faq__accordion-icon {
+  background-color: transparent;
+  border: 1px solid $color-default-white;
+
+  &::before {
+    background-color: $color-default-white;
+  }
+}
+
+.faq__accordion-element.is-active
+  .faq__accordion-button:active
+  .faq__accordion-icon {
+  background-color: $color-default-white;
+  border: 1px solid $color-default-white;
+
+  &::before {
+    background-color: #275699;
+  }
+}
+
+.faq__accordion-element.is-active span::after {
+  display: none;
+}
+
+.faq__accordion-element span {
+  max-width: 678px;
+  margin: 0;
+  padding: 0;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: left;
+  color: $color-light-blue;
+  text-transform: none;
+
+  transition: 0.3s;
+
+  @include vp-1199 {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  @include vp-767 {
+    max-width: unset;
+
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+.faq__accordion-button:active span {
+  color: $color-endeavour;
+}
+
+.faq__accordion-element.is-active span {
+  color: $color-default-white;
+
+  transition: 0.3s;
+
+  @include vp-1199 {
+  }
+  @include vp-767 {
+  }
+}
+
+.faq__accordion-button br {
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.faq__accordion-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.faq__accordion-wrapper p {
+  max-width: 715px;
+  margin: 0;
+  padding: 0;
+  padding: 0 40px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: rgba(240, 239, 233, 1);
+
+  @include vp-1199 {
+    max-width: 600px;
+    padding: 0 30px;
+
+    line-height: 20px;
+  }
+  @include vp-767 {
+    padding: 0 15px;
+
+    font-size: 14px;
+  }
+}
+
+.faq__accordion-element.is-active:has(.faq__accordion-button:active) {
+  background-color: $color-endeavour;
+}

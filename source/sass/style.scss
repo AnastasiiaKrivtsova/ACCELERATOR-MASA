@@ -2,8 +2,11 @@
 // ---------------------------------
 
 @import "vendor/normalize";
-// Swiper 8.4.7
-// @import "vendor/swiper";
+
+// Swiper 7.4.1
+@import "vendor/swiper";
+@import "vendor/leaflet";
+@import "vendor/auto-resize-textarea";
 
 // Global
 // ---------------------------------
@@ -14,6 +17,7 @@
 @import "global/reboot";
 @import "global/utils";
 @import "global/container";
+@import "global/data-accordion";
 
 // Blocks
 // ---------------------------------
@@ -23,6 +27,26 @@
 @import "blocks/custom-input";
 @import "blocks/custom-toggle";
 @import "blocks/custom-select";
+@import "blocks/general-button";
+@import "blocks/hero";
+@import "blocks/header";
+@import "blocks/header-nav";
+@import "blocks/submenu";
+@import "blocks/footer";
+@import "blocks/footer-nav";
+@import "blocks/social";
+@import "blocks/company";
+@import "blocks/advantages";
+@import "blocks/programms";
+@import "blocks/instructions";
+@import "blocks/accordion";
+@import "blocks/news";
+@import "blocks/faq";
+@import "blocks/reviews";
+@import "blocks/contacts";
+@import "blocks/form";
+@import "blocks/masa-modal";
+
 
 // ---------------------------------
 

@@ -4,11 +4,14 @@
 
   color: $color-default-white;
 
-  background-color: $color-neon-blue;
   border: none;
   cursor: pointer;
 
   transition: opacity $trans-default;
+
+  @include hover-focus {
+    opacity: 0.8;
+  }
 
   &--red {
     background-color: $color-torch-red;
@@ -18,9 +21,5 @@
     opacity: 0.5;
 
     pointer-events: none;
-  }
-
-  @include hover-focus {
-    opacity: 0.8;
   }
 }
