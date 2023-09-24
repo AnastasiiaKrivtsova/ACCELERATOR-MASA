@@ -4963,6 +4963,9 @@ button,
   background-image: url("../img/svg/angle.svg");
   background-repeat: no-repeat;
   background-size: 18px 18px;
+  -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+          transform: rotate(270deg);
 }
 
 .programms__title h3 {
