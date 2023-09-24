@@ -14,11 +14,6 @@
     padding-right: 100px;
     padding-left: 100px;
   }
-
-  @media (max-width: 1300px) {
-    padding-right: 5%;
-    padding-left: 5%;
-  }
 }
 
 .faq__wrapper {
@@ -83,8 +78,6 @@
   }
 
   &.is-active {
-    padding-bottom: 33px;
-
     background-color: $color-light-blue;
     opacity: 1;
   }

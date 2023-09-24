@@ -213,9 +213,9 @@
 }
 
 .news__slider-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-flex;
+  align-items: end;
+  justify-content: right;
   width: 30px;
   height: 30px;
 
@@ -277,16 +277,6 @@
 
   top: 22px;
   right: 16px;
-
-  @include vp-1199 {
-    width: 1.3vw;
-    height: 1.3vw;
-  }
-
-  @include vp-767 {
-    width: 3.1vw;
-    height: 3.1vw;
-  }
 }
 
 .news__content {
@@ -572,7 +562,7 @@
   position: unset;
 
   display: flex;
-  justify-content: space-between;
+  gap: 12px;
   max-width: 196px;
 
   @include vp-767 {
