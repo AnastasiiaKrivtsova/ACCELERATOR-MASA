@@ -6,6 +6,7 @@ import {openCloseMenu, openCloseSubMenu} from './blocks/menu';
 import {CustomSelect} from './modules/form-validate/custom-select';
 import {initAccordions} from './blocks/init-accordion';
 import {setNewsButton} from './blocks/news-sorter';
+import {marker, map} from './blocks/map';
 
 window.addEventListener('DOMContentLoaded', () => {
   iosVhFix();
@@ -16,6 +17,8 @@ window.addEventListener('DOMContentLoaded', () => {
   openCloseMenu();
   openCloseSubMenu();
   initAccordions();
+  marker;
+  map;
   setNewsButton();
 
   window.addEventListener('load', () => {
