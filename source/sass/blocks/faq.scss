@@ -80,6 +80,11 @@
   &.is-active {
     background-color: $color-light-blue;
     opacity: 1;
+    padding-bottom: 10px;
+
+    @include vp-767 {
+      padding-bottom: 15px;
+    }
   }
 }
 
@@ -94,6 +99,7 @@
   padding: 32px 39px 32px 39px;
 
   border: 1px solid $color-light-blue;
+  background-color: $color-alabaster;
   border-radius: 16px;
 
   transition: 0.3s;
@@ -354,7 +360,7 @@
 .faq__accordion-wrapper p {
   max-width: 715px;
   margin: 0;
-  padding: 0 40px;
+  padding: 0 40px 20px 40px;
 
   font-weight: 400;
   font-size: 16px;

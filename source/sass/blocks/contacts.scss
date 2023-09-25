@@ -101,6 +101,7 @@
 
   @include vp-767 {
     flex-direction: column;
+    gap: 5px;
   }
 }
 
@@ -227,6 +228,9 @@
   height: 500px;
 
   border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
 
   @include vp-767 {
     height: 240px;

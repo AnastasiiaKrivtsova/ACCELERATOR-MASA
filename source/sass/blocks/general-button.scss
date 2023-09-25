@@ -92,6 +92,7 @@
   stroke: $color-light-blue;
   transform: rotate(45deg);
   color: $color-light-blue;
+  transition: 1;
 }
 
 .general-button:focus .general-button__icon-wrapper {
