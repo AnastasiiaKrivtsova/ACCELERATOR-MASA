@@ -30,7 +30,29 @@
   display: none;
 }
 
-.header__overlay .header-nav__menu-list--is-open {
+.header__overlay .header-nav__menu-list--is-open,
+.header__overlay .header-nav__menu--is-open,
+.header__overlay .header-nav--is-open {
+  display: block;
+  position: absolute;
+  top: -30px;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-form-overlay;
+  z-index: 1;
+
+  cursor: pointer;
+
+  @include vp-767 {
+    top: -20px;
+  }
+}
+
+.hero .header-nav__menu-list--is-open,
+.hero .header-nav__menu--is-open,
+.hero .header-nav--is-open {
   display: block;
   position: absolute;
   top: -30px;

@@ -1153,7 +1153,6 @@ button.swiper-pagination-bullet {
 }
 
 /* required styles */
-/* stylelint-disable */
 .leaflet-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -1177,9 +1176,10 @@ button.swiper-pagination-bullet {
 .leaflet-marker-icon,
 .leaflet-marker-shadow {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* Prevents IE11 from highlighting tiles in blue */
@@ -1200,8 +1200,6 @@ button.swiper-pagination-bullet {
   width: 1600px;
   height: 1600px;
   -webkit-transform-origin: 0 0;
-      -ms-transform-origin: 0 0;
-          transform-origin: 0 0;
 }
 
 .leaflet-marker-icon,
@@ -1211,11 +1209,7 @@ button.swiper-pagination-bullet {
 
 /* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
 /* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
-.leaflet-container .leaflet-overlay-pane svg {
-  max-width: none !important;
-  max-height: none !important;
-}
-
+.leaflet-container .leaflet-overlay-pane svg,
 .leaflet-container .leaflet-marker-pane img,
 .leaflet-container .leaflet-shadow-pane img,
 .leaflet-container .leaflet-tile-pane img,
@@ -1223,12 +1217,6 @@ button.swiper-pagination-bullet {
 .leaflet-container .leaflet-tile {
   max-width: none !important;
   max-height: none !important;
-  width: auto;
-  padding: 0;
-}
-
-.leaflet-container img.leaflet-tile {
-  mix-blend-mode: plus-lighter;
 }
 
 .leaflet-container.leaflet-touch-zoom {
@@ -1238,6 +1226,7 @@ button.swiper-pagination-bullet {
 
 .leaflet-container.leaflet-touch-drag {
   -ms-touch-action: pinch-zoom;
+  /* Fallback for FF which doesn't support pinch-zoom */
   touch-action: none;
   touch-action: pinch-zoom;
 }
@@ -1275,10 +1264,7 @@ button.swiper-pagination-bullet {
 
 /* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
 .leaflet-overlay-pane svg {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
 }
 
 .leaflet-pane {
@@ -1332,7 +1318,7 @@ button.swiper-pagination-bullet {
 .leaflet-control {
   position: relative;
   z-index: 800;
-  pointer-events: visiblePainted;
+  pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
   pointer-events: auto;
 }
 
@@ -1385,6 +1371,10 @@ button.swiper-pagination-bullet {
 }
 
 /* zoom and fade animations */
+.leaflet-fade-anim .leaflet-tile {
+  will-change: opacity;
+}
+
 .leaflet-fade-anim .leaflet-popup {
   opacity: 0;
   -webkit-transition: opacity 0.2s linear;
@@ -1401,7 +1391,7 @@ button.swiper-pagination-bullet {
   transform-origin: 0 0;
 }
 
-svg.leaflet-zoom-animated {
+.leaflet-zoom-anim .leaflet-zoom-animated {
   will-change: transform;
 }
 
@@ -1463,19 +1453,22 @@ svg.leaflet-zoom-animated {
 .leaflet-image-layer.leaflet-interactive,
 .leaflet-pane > svg path.leaflet-interactive,
 svg.leaflet-image-layer.leaflet-interactive path {
-  pointer-events: visiblePainted;
-  /* IE 9-10 doesn't have auto */
+  pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
   pointer-events: auto;
 }
 
 /* visual tweaks */
 .leaflet-container {
   background: #ddd;
-  outline-offset: 1px;
+  outline: 0;
 }
 
 .leaflet-container a {
   color: #0078A8;
+}
+
+.leaflet-container a.leaflet-active {
+  outline: 2px solid orange;
 }
 
 .leaflet-zoom-box {
@@ -1485,10 +1478,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* general typography */
 .leaflet-container {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-size: 0.75rem;
-  line-height: 1.5;
+  font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 /* general toolbar styles */
@@ -1498,7 +1488,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border-radius: 4px;
 }
 
-.leaflet-bar a {
+.leaflet-bar a,
+.leaflet-bar a:hover {
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   width: 26px;
@@ -1517,8 +1508,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   display: block;
 }
 
-.leaflet-bar a:hover,
-.leaflet-bar a:focus {
+.leaflet-bar a:hover {
   background-color: #f4f4f4;
 }
 
@@ -1539,6 +1529,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
   color: #bbb;
 }
 
+.leaflet-touch .leaflet-bar a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.leaflet-touch .leaflet-bar a:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.leaflet-touch .leaflet-bar a:last-child {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
 /* zoom control */
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
@@ -1546,8 +1552,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   text-indent: 1px;
 }
 
-.leaflet-touch .leaflet-control-zoom-in,
-.leaflet-touch .leaflet-control-zoom-out {
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out {
   font-size: 22px;
 }
 
@@ -1605,8 +1610,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-control-layers label {
   display: block;
-  font-size: 13px;
-  font-size: 1.08333em;
 }
 
 .leaflet-control-layers-separator {
@@ -1623,7 +1626,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* attribution and scale controls */
 .leaflet-container .leaflet-control-attribution {
   background: #fff;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
   margin: 0;
 }
 
@@ -1631,23 +1634,19 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-control-scale-line {
   padding: 0 5px;
   color: #333;
-  line-height: 1.4;
 }
 
 .leaflet-control-attribution a {
   text-decoration: none;
 }
 
-.leaflet-control-attribution a:hover,
-.leaflet-control-attribution a:focus {
+.leaflet-control-attribution a:hover {
   text-decoration: underline;
 }
 
-.leaflet-attribution-flag {
-  display: inline !important;
-  vertical-align: baseline !important;
-  width: 1em;
-  height: 0.6669em;
+.leaflet-container .leaflet-control-attribution,
+.leaflet-container .leaflet-control-scale {
+  font-size: 11px;
 }
 
 .leaflet-left .leaflet-control-scale {
@@ -1663,11 +1662,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border-top: none;
   line-height: 1.1;
   padding: 2px 5px 1px;
+  font-size: 11px;
   white-space: nowrap;
+  overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.8);
-  text-shadow: 1px 1px #fff;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .leaflet-control-scale-line:not(:first-child) {
@@ -1707,16 +1708,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 
 .leaflet-popup-content {
-  margin: 13px 24px 13px 20px;
-  line-height: 1.3;
-  font-size: 13px;
-  font-size: 1.08333em;
-  min-height: 1px;
+  margin: 13px 19px;
+  line-height: 1.4;
 }
 
 .leaflet-popup-content p {
-  margin: 17px 0;
-  margin: 1.3em 0;
+  margin: 18px 0;
 }
 
 .leaflet-popup-tip-container {
@@ -1724,7 +1721,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
   height: 20px;
   position: absolute;
   left: 50%;
-  margin-top: -1px;
   margin-left: -20px;
   overflow: hidden;
   pointer-events: none;
@@ -1735,7 +1731,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
   height: 17px;
   padding: 1px;
   margin: -10px auto 0;
-  pointer-events: auto;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -1753,27 +1748,30 @@ svg.leaflet-image-layer.leaflet-interactive path {
   position: absolute;
   top: 0;
   right: 0;
+  padding: 4px 4px 0 0;
   border: none;
   text-align: center;
-  width: 24px;
-  height: 24px;
-  font: 16px/24px Tahoma, Verdana, sans-serif;
-  color: #757575;
+  width: 18px;
+  height: 14px;
+  font: 16px/14px Tahoma, Verdana, sans-serif;
+  color: #c3c3c3;
   text-decoration: none;
+  font-weight: bold;
   background: transparent;
 }
 
-.leaflet-container a.leaflet-popup-close-button:hover,
-.leaflet-container a.leaflet-popup-close-button:focus {
-  color: #585858;
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #999;
 }
 
 .leaflet-popup-scrolled {
   overflow: auto;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 
 .leaflet-oldie .leaflet-popup-content-wrapper {
-  zoom: 1;
+  -ms-zoom: 1;
 }
 
 .leaflet-oldie .leaflet-popup-tip {
@@ -1781,6 +1779,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
   margin: 0 auto;
   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
   filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+}
+
+.leaflet-oldie .leaflet-popup-tip-container {
+  margin-top: -1px;
 }
 
 .leaflet-oldie .leaflet-control-zoom,
@@ -1815,7 +1817,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.leaflet-tooltip.leaflet-interactive {
+.leaflet-tooltip.leaflet-clickable {
   cursor: pointer;
   pointer-events: auto;
 }
@@ -1885,13 +1887,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border-right-color: #fff;
 }
 
-/* Printing */
-@media print {
-  .leaflet-control {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-}
 .auto-resize-textarea {
   margin-bottom: 20px;
 }
@@ -2696,6 +2691,7 @@ button,
 @media (hover: hover) {
   .custom-select__item[aria-selected=true]:hover:not(.focus-visible) {
     color: rgb(49, 109, 194);
+    background-color: #ffffff;
   }
 }
 .custom-select__item[aria-selected=true].focus-visible:focus {
@@ -2705,6 +2701,7 @@ button,
 @media (hover: hover) {
   .custom-select__item:hover:not(.focus-visible) {
     color: rgb(49, 109, 194);
+    background-color: #ffffff;
   }
 }
 .custom-select__item.focus-visible:focus {
@@ -3099,60 +3096,68 @@ button,
 }
 
 .hero__swiper-content--first {
-  background-image: url("../img/index/index3-desktop.png");
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  .hero__swiper-content--first {
-    background-image: url("../img/index/index3-desktop@2x.png");
-  }
-}
-@media (max-width: 1199px) {
-  .hero__swiper-content--first {
-    background-image: url("../img/index/index3-tablet.png");
-  }
-}
-@media (max-width: 1199px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 1199px) and (min-resolution: 144dpi), (max-width: 1199px) and (min-resolution: 1.5dppx) {
-  .hero__swiper-content--first {
-    background-image: url("../img/index/index3-tablet@2x.png");
-  }
-}
-@media (max-width: 767px) {
-  .hero__swiper-content--first {
-    background-image: url("../img/index/index3-mobile.png");
-  }
-}
-@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 767px) and (min-resolution: 144dpi), (max-width: 767px) and (min-resolution: 1.5dppx) {
-  .hero__swiper-content--first {
-    background-image: url("../img/index/index3-mobile@2x.png");
-  }
-}
-
-.hero__swiper-content--second {
   background-image: url("../img/index/index2-desktop.png");
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  .hero__swiper-content--second {
+  .hero__swiper-content--first {
     background-image: url("../img/index/index2-desktop@2x.png");
   }
 }
 @media (max-width: 1199px) {
-  .hero__swiper-content--second {
+  .hero__swiper-content--first {
     background-image: url("../img/index/index2-tablet.png");
   }
 }
 @media (max-width: 1199px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 1199px) and (min-resolution: 144dpi), (max-width: 1199px) and (min-resolution: 1.5dppx) {
-  .hero__swiper-content--second {
+  .hero__swiper-content--first {
     background-image: url("../img/index/index2-tablet@2x.png");
   }
 }
 @media (max-width: 767px) {
-  .hero__swiper-content--second {
+  .hero__swiper-content--first {
     background-image: url("../img/index/index2-mobile.png");
   }
 }
 @media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 767px) and (min-resolution: 144dpi), (max-width: 767px) and (min-resolution: 1.5dppx) {
-  .hero__swiper-content--second {
+  .hero__swiper-content--first {
     background-image: url("../img/index/index2-mobile@2x.png");
+  }
+}
+
+.hero__swiper-content--second {
+  background-image: url("../img/index/index3-desktop.png");
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .hero__swiper-content--second {
+    background-image: url("../img/index/index3-desktop@2x.png");
+  }
+}
+@media (max-width: 1199px) {
+  .hero__swiper-content--second {
+    background-image: url("../img/index/index3-tablet.png");
+  }
+}
+@media (max-width: 1199px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 1199px) and (min-resolution: 144dpi), (max-width: 1199px) and (min-resolution: 1.5dppx) {
+  .hero__swiper-content--second {
+    background-image: url("../img/index/index3-tablet@2x.png");
+  }
+}
+@media (max-width: 767px) {
+  .hero__swiper-content--second {
+    background-image: url("../img/index/index3-mobile.png");
+  }
+}
+@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 767px) and (min-resolution: 144dpi), (max-width: 767px) and (min-resolution: 1.5dppx) {
+  .hero__swiper-content--second {
+    background-image: url("../img/index/index3-mobile@2x.png");
+  }
+}
+.hero__swiper-content--second .hero__button {
+  margin-top: 10px;
+}
+@media (max-width: 767px) {
+  .hero__swiper-content--second .hero__button {
+    margin-top: 0;
   }
 }
 
@@ -3184,39 +3189,58 @@ button,
     background-image: url("../img/index/index1-mobile@2x.png");
   }
 }
-
-.header-nav__menu-list--is-open .hero__swiper-content--third {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.75)), color-stop(75%, rgba(0, 0, 0, 0))), "../img/index/index1-desktop.png";
-  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%), "../img/index/index1-desktop.png";
-}
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
-  .header-nav__menu-list--is-open .hero__swiper-content--third {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.75)), color-stop(75%, rgba(0, 0, 0, 0))), url("../img/index/index1-desktop@2x.png");
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%), url("../img/index/index1-desktop@2x.png");
-  }
+.hero__swiper-content--third .hero__slider {
+  min-height: 89px;
 }
 @media (max-width: 1199px) {
-  .header-nav__menu-list--is-open .hero__swiper-content--third {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.75)), color-stop(75%, rgba(0, 0, 0, 0))), url("../img/index/index1-tablet.png");
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%), url("../img/index/index1-tablet.png");
-  }
-}
-@media (max-width: 1199px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 1199px) and (min-resolution: 144dpi), (max-width: 1199px) and (min-resolution: 1.5dppx) {
-  .header-nav__menu-list--is-open .hero__swiper-content--third {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.75)), color-stop(75%, rgba(0, 0, 0, 0))), url("../img/index/index1-tablet@2x.png");
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%), url("../img/index/index1-tablet@2x.png");
+  .hero__swiper-content--third .hero__title {
+    padding: 30px 40px 20px;
   }
 }
 @media (max-width: 767px) {
-  .header-nav__menu-list--is-open .hero__swiper-content--third {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.75)), color-stop(75%, rgba(0, 0, 0, 0))), url("../img/index/index1-mobile.png");
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%), url("../img/index/index1-mobile.png");
+  .hero__swiper-content--third .hero__title {
+    padding: 20px 14px 10px;
+  }
+}
+
+.header-nav__menu-list--is-open .hero__swiper-content--third .header-nav__menu-list--is-open .hero__swiper-content--third,
+.header-nav__menu--is-open .hero__swiper-content--third,
+.header-nav--is-open .hero__swiper-content--third {
+  background-image: rgba(13, 29, 51, 0.4), "../img/index/index1-desktop.png";
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .header-nav__menu-list--is-open .hero__swiper-content--third .header-nav__menu-list--is-open .hero__swiper-content--third,
+.header-nav__menu--is-open .hero__swiper-content--third,
+.header-nav--is-open .hero__swiper-content--third {
+    background-image: rgba(13, 29, 51, 0.4), url("../img/index/index1-desktop@2x.png");
+  }
+}
+@media (max-width: 1199px) {
+  .header-nav__menu-list--is-open .hero__swiper-content--third .header-nav__menu-list--is-open .hero__swiper-content--third,
+.header-nav__menu--is-open .hero__swiper-content--third,
+.header-nav--is-open .hero__swiper-content--third {
+    background-image: rgba(13, 29, 51, 0.4), url("../img/index/index1-tablet.png");
+  }
+}
+@media (max-width: 1199px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 1199px) and (min-resolution: 144dpi), (max-width: 1199px) and (min-resolution: 1.5dppx) {
+  .header-nav__menu-list--is-open .hero__swiper-content--third .header-nav__menu-list--is-open .hero__swiper-content--third,
+.header-nav__menu--is-open .hero__swiper-content--third,
+.header-nav--is-open .hero__swiper-content--third {
+    background-image: rgba(13, 29, 51, 0.4), url("../img/index/index1-tablet@2x.png");
+  }
+}
+@media (max-width: 767px) {
+  .header-nav__menu-list--is-open .hero__swiper-content--third .header-nav__menu-list--is-open .hero__swiper-content--third,
+.header-nav__menu--is-open .hero__swiper-content--third,
+.header-nav--is-open .hero__swiper-content--third {
+    background-image: rgba(13, 29, 51, 0.4), url("../img/index/index1-mobile.png");
   }
 }
 @media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 1.5), (max-width: 767px) and (min-resolution: 144dpi), (max-width: 767px) and (min-resolution: 1.5dppx) {
-  .header-nav__menu-list--is-open .hero__swiper-content--third {
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.75)), color-stop(75%, rgba(0, 0, 0, 0))), url("../img/index/index1-mobile@2x.png");
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%), url("../img/index/index1-mobile@2x.png");
+  .header-nav__menu-list--is-open .hero__swiper-content--third .header-nav__menu-list--is-open .hero__swiper-content--third,
+.header-nav__menu--is-open .hero__swiper-content--third,
+.header-nav--is-open .hero__swiper-content--third {
+    background-image: rgba(13, 29, 51, 0.4), url("../img/index/index1-mobile@2x.png");
   }
 }
 
@@ -3331,7 +3355,7 @@ button,
   .hero__title {
     max-width: 97.2%;
     min-height: 136px;
-    padding: 30px 40px 20px;
+    padding: 35px 40px 20px;
   }
 }
 @media (max-width: 767px) {
@@ -3379,7 +3403,7 @@ button,
       -ms-flex-align: center;
           align-items: center;
   max-width: 772px;
-  min-height: 89px;
+  min-height: 99px;
   margin: 0;
   margin-top: -1px;
   padding: 0 50px 28px;
@@ -3451,6 +3475,15 @@ button,
     margin-top: -1px;
     padding: 0 14px 11px 14px;
     border-radius: 0 0 14px 0;
+  }
+}
+
+.hero__text--second {
+  margin-top: 5px;
+}
+@media (max-width: 767px) {
+  .hero__text--second {
+    margin-top: 0;
   }
 }
 
@@ -3550,7 +3583,9 @@ button,
   display: none;
 }
 
-.header__overlay .header-nav__menu-list--is-open {
+.header__overlay .header-nav__menu-list--is-open,
+.header__overlay .header-nav__menu--is-open,
+.header__overlay .header-nav--is-open {
   display: block;
   position: absolute;
   top: -30px;
@@ -3562,7 +3597,30 @@ button,
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  .header__overlay .header-nav__menu-list--is-open {
+  .header__overlay .header-nav__menu-list--is-open,
+.header__overlay .header-nav__menu--is-open,
+.header__overlay .header-nav--is-open {
+    top: -20px;
+  }
+}
+
+.hero .header-nav__menu-list--is-open,
+.hero .header-nav__menu--is-open,
+.hero .header-nav--is-open {
+  display: block;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(13, 29, 51, 0.4);
+  z-index: 1;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .hero .header-nav__menu-list--is-open,
+.hero .header-nav__menu--is-open,
+.hero .header-nav--is-open {
     top: -20px;
   }
 }
@@ -7151,7 +7209,6 @@ button,
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: 5px;
   }
 }
 
@@ -7759,6 +7816,11 @@ button,
     margin-bottom: 12px;
   }
 }
+@media (min-width: 321px) and (max-width: 767px) {
+  .form__checkbox:last-of-type {
+    padding-left: 25%;
+  }
+}
 
 .form__checkbox-label {
   font-style: normal;
@@ -7785,6 +7847,12 @@ button,
   .custom-toggle--checkbox .form__toggle-icon,
 .custom-toggle--radio .form__toggle-icon {
     top: 12px;
+  }
+}
+@media (min-width: 321px) and (max-width: 767px) {
+  .custom-toggle--checkbox .form__toggle-icon,
+.custom-toggle--radio .form__toggle-icon {
+    top: 6px;
   }
 }
 .custom-toggle--checkbox .form__toggle-icon:hover,
@@ -7914,7 +7982,7 @@ button,
 }
 @media (max-width: 1199px) {
   .masa-modal__container {
-    width: 74.1%;
+    width: 100%;
     max-width: unset;
     min-height: 510px;
     padding: 55px 80px 60px;

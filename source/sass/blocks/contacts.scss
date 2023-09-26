@@ -101,7 +101,6 @@
 
   @include vp-767 {
     flex-direction: column;
-    gap: 5px;
   }
 }
 
@@ -251,4 +250,11 @@
 
     background-size: 24px 24px;
   }
+}
+
+.leaflet-container .leaflet-touch .leaflet-retina .leaflet-fade-anim .leaflet-grab .leaflet-touch-drag .leaflet-touch-zoom {
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
 }

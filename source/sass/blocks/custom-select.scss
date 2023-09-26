@@ -124,6 +124,7 @@
       @media (hover: hover) {
         &:hover:not(.focus-visible) {
          color: rgba(49, 109, 194, 1);
+         background-color: $color-default-white;
         }
       }
 
@@ -135,7 +136,8 @@
 
     @media (hover: hover) {
       &:hover:not(.focus-visible) {
-  color: rgba(49, 109, 194, 1);
+        color: rgba(49, 109, 194, 1);
+        background-color: $color-default-white;
 
       }
     }
